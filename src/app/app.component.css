@@ -1,0 +1,18 @@
+.montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.quicksand {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.main {
+  margin-top: 35px;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  /* Add a top margin to avoid content overlay */
+}
+
+.bottom {
+  margin-top: 15em;
+}

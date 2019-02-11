@@ -1,0 +1,41 @@
+<div class="clearfix">
+  <div class="left">
+    <div>
+      <h2>Apprentissage :</h2>
+      <h3>Données : </h3>
+      <div *ngFor="let x of table">
+        <select [(ngModel)]="selectedType[x]">
+          <option *ngFor="let type of data[id].type" value={{type}}>{{type}}</option>
+        </select>
+        <br />
+
+      </div>
+      <button (click)="addData()">+</button><button (click)="deleteData(x)">-</button>
+
+    </div>
+    <div>
+      <h3>Méthode d'apprentissage</h3>
+      <select [(ngModel)]="selectedLearning">
+        <option value="Reseau_neurone">Réseau de neurones</option>
+        <option value="RandomForest">Random Forest</option>
+      </select>
+    </div>
+    <button (click)="Result(); networkEmit()">Lancer l'apprentissage</button>
+  </div>
+  <div class="right">
+    <h2>2. Sélection des données et du modèle</h2>
+    <p>Dans un premier temps, il faut sélectionner le(s) jeu(x) de données génétiques que tu souhaites analyser par la
+      suite.</p>
+    <p>Il est important de prendre un nombre de données suffisant pour que la machine apprenne correctement. Plus il y
+      a de données, plus elle affinera son modèle.</p>
+    <p>Tu dois également choisir le modèle d'apprentissage que tu vas appliquer à ces données. Chaque algorithme a ses
+      forces et ses faiblesses. Ils peuvent donner des résultats très différents !</p>
+    <p>Quand tu as fait tes choix, lance l'apprentissage pour visualiser tes résultats !</p>
+  </div>
+</div>
+<br/><div class="line"></div><br/>
+
+<div *ngIf="result">
+  <app-prediction [dataSend]='dataString' [lengthData]='lengthNumber' [id]=id [method]=selectedLearning></app-prediction>
+  <app-interaction-graph [linksSend]='links'></app-interaction-graph>
+</div>
